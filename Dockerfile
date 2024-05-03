@@ -1,4 +1,4 @@
-FROM maven:3.8.6-amazoncorretto-17 as builder
+FROM registry.cn-beijing.aliyuncs.com/arvintian/maven:3.8.6-amazoncorretto-17 as builder
 
 COPY . /builds
 
@@ -8,7 +8,7 @@ WORKDIR /builds
 
 RUN mvn clean package -Dmaven.test.skip=true
 
-FROM amazoncorretto:17
+FROM registry.cn-beijing.aliyuncs.com/arvintian/amazoncorretto:17
 
 ARG APPLICATION
 ARG CLUSTER
